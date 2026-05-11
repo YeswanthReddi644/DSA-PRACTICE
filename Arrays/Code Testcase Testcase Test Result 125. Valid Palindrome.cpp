@@ -1,0 +1,32 @@
+link:https://leetcode.com/problems/valid-palindrome/submissions/2000355669/
+class Solution {
+public:
+    bool isPalindrome(string s) {
+
+        int i = 0;
+        int j = s.size() - 1;
+
+        while(i < j) {
+
+            // skip special characters from left
+            while(i < j && !isalnum(s[i])) {
+                i++;
+            }
+
+            // skip special characters from right
+            while(i < j && !isalnum(s[j])) {
+                j--;
+            }
+
+            // convert both to lowercase and compare
+            if(tolower(s[i]) != tolower(s[j])) {
+                return false;
+            }
+
+            i++;
+            j--;
+        }
+
+        return true;
+    }
+};
