@@ -1,7 +1,13 @@
 name: Semgrep Security Scan
+run-name: Semgrep scan #${{ inputs.scan_id || 'automatic' }}
 
 on:
   workflow_dispatch:
+    inputs:
+      scan_id:
+        description: 'Security Auditor scan ID'
+        required: true
+        type: string
   push:
     branches: [main]
   pull_request:
